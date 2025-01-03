@@ -36,7 +36,7 @@ func (h *Handler) Badge(c echo.Context) error {
 func StartServer(visitorService *service.VisitorService, port string) {
 	e := echo.New()
 	handler := NewHandler(visitorService)
-	e.GET("/badge", handler.Badge)
+	e.GET("/badge.svg", handler.Badge)
 	e.Logger.Fatal(e.Start(":" + port))
 
 }
