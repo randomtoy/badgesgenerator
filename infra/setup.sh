@@ -29,7 +29,7 @@ build_and_push() {
 
     docker build \
     -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$version \
-    -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$DEVENV .
+    -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$DEVENV \
     -f ./Dockerfile .
 
     docker push $DOCKERHUB_USERNAME/$IMAGE_NAME -a
