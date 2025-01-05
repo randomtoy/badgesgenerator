@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exu
 
-VERSION_FILE="../VERSION.txt"
+VERSION_FILE="./VERSION.txt"
 
 DEVENV=${1:-unknown}
 
@@ -30,7 +30,7 @@ build_and_push() {
     docker build \
     -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$version \
     -t $DOCKERHUB_USERNAME/$IMAGE_NAME:$DEVENV .
-    -f ../Dockerfile ../
+    -f ./Dockerfile .
 
     docker push $DOCKERHUB_USERNAME/$IMAGE_NAME -a
 
