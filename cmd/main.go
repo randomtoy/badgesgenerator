@@ -12,9 +12,9 @@ import (
 
 func main() {
 	ctx := context.Background()
-	cfg := config.LoadConfig("./config")
+	cfg := config.LoadEnvConfig()
 
-	redisClient, err := redis.NewRedisClient(ctx, cfg.Redis.Host)
+	redisClient, err := redis.NewRedisClient(ctx, cfg.Redis.Host, cfg.Redis.Port, cfg.Redis.Password)
 	if err != nil {
 		log.Fatalf("Failed to connect to Redis: %v", err)
 	}
