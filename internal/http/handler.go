@@ -29,7 +29,7 @@ func (h *Handler) Badge(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}
 
-	svgBadge := svg.GenerateBadgeSVG(url, count)
+	svgBadge := svg.GenerateBadgeSVG(count)
 	return c.Blob(http.StatusOK, "image/svg+xml", []byte(svgBadge))
 }
 

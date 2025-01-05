@@ -2,7 +2,7 @@ package svg
 
 import "fmt"
 
-func GenerateBadgeSVG(url string, count int64) string {
+func GenerateBadgeSVG(count int64) string {
 
 	const template = `
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="103" height="20">
