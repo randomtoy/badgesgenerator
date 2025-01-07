@@ -10,10 +10,9 @@ on:
 env:
   YANDEX_SA_KEY: ${{ secrets.YANDEX_SA_KEY }}
   SSH_PUB_KEY: ${{ secrets.SSH_PUB_KEY }}
-  PATH_TO_DOCKER_COMPOSE_FILE: ${{ secrets.PATH_TO_DOCKER_COMPOSE_FILE }}
-  VM_DATA_DISK_D_NAME: ${{ secrets.VM_DATA_DISK_D_NAME }}
-  VM_NAME: ${{ secrets.VM_NAME }}
-  VM_ZONE: ${{ secrets.VM_ZONE }}
+  SUBNET_ID: ${{ secrets.SUBNET_ID }}
+  SERVICE_ACCOUNT_ID: ${{ secrets.SERVICE_ACCOUNT_ID }}
+
         
 jobs:
   deploy:
