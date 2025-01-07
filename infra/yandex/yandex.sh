@@ -10,6 +10,7 @@ prepare_environment() {
 install_coi_vm() {
 
     yc compute instance create-with-container   \
+    --folder_id "${FOLDER_ID}" \
     --name "${VM_NAME}" --zone "${VM_ZONE}" --ssh-key ./key.pub \
     --cores ${VM_CORE:-2} --memory ${MEMORY_SIZE:-2} \
     --create-boot-disk size=${VM_BOOT_DISK_SIZE:-30} \
@@ -22,11 +23,12 @@ install_coi_vm() {
 
 update_coi_vm() {
     yc compute instance update-container "${VM_NAME}" \
+    --folder_id "${FOLDER_ID}" \
     --docker-compose-file ${PATH_TO_DOCKER_COMPOSE_FILE}
 }
 
 check_coi_vm() {
-    yc compute instance get ${VM_NAME} >/dev/null 2>&1
+    yc compute instance get --folder_id "${FOLDER_ID}" ${VM_NAME} >/dev/null 2>&1
     echo $?
 }
 
