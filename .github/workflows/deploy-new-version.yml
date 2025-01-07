@@ -12,6 +12,7 @@ env:
   SSH_PUB_KEY: ${{ secrets.SSH_PUB_KEY }}
   SUBNET_ID: ${{ secrets.SUBNET_ID }}
   SERVICE_ACCOUNT_ID: ${{ secrets.SERVICE_ACCOUNT_ID }}
+  FOLDER_ID: ${{ secrets.FOLDER_ID }}
   VM_NAME: ${{ vars.VM_NAME }}
   VM_ZONE: ${{ vars.VM_ZONE }}
   PATH_TO_DOCKER_COMPOSE_FILE: ${{ vars.PATH_TO_DOCKER_COMPOSE_FILE }}
