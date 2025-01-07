@@ -19,6 +19,7 @@ install_coi_vm() {
     --service-account-id "${SERVICE_ACCOUNT_ID}" \
     --docker-compose-file ${PATH_TO_DOCKER_COMPOSE_FILE} \
     >/dev/null 2>&1
+    echo $?
 
 }
 
@@ -27,6 +28,7 @@ update_coi_vm() {
     --folder-id "${FOLDER_ID}" \
     --docker-compose-file ${PATH_TO_DOCKER_COMPOSE_FILE} \
     >/dev/null 2>&1
+    echo $?
 }
 
 check_coi_vm() {
