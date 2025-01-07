@@ -23,6 +23,6 @@ services:
     restart: always
 
 x-yc-disks:
-  - device_name: redis-data
+  - device_name: {{VM_DATA_DISK_D_NAME}}
     fs_type: ext4
     host_path: /home/yc-user/redis-data      
