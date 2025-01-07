@@ -1,0 +1,33 @@
+name: Deploy New Version
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: false
+        default: unknown
+
+env:
+  YANDEX_SA_KEY: ${{ secrets.YANDEX_SA_KEY }}
+  SSH_PUB_KEY: ${{ secrets.SSH_PUB_KEY }}
+  PATH_TO_DOCKER_COMPOSE_FILE: ${{ secrets.PATH_TO_DOCKER_COMPOSE_FILE }}
+  VM_DATA_DISK_D_NAME: ${{ secrets.VM_DATA_DISK_D_NAME }}
+  VM_NAME: ${{ secrets.VM_NAME }}
+  VM_ZONE: ${{ secrets.VM_ZONE }}
+        
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: Try to install yc cli and login into yandex cloud
+          uses: okar1/yc-cli-install@master
+          with:
+            SA_KEY: ${{ env.YANDEX_SA_KEY }}
+
+        - name: Deploy app
+          run: |
+            bash infra/yandex/yandex.sh
+            
