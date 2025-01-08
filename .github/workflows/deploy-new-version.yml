@@ -10,6 +10,7 @@ on:
 env:
   YANDEX_SA_KEY: ${{ secrets.YANDEX_SA_KEY }}
   SSH_PUB_KEY: ${{ secrets.SSH_PUB_KEY }}
+  SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
   SUBNET_ID: ${{ secrets.SUBNET_ID }}
   SERVICE_ACCOUNT_ID: ${{ secrets.SERVICE_ACCOUNT_ID }}
   FOLDER_ID: ${{ secrets.FOLDER_ID }}
@@ -17,6 +18,7 @@ env:
   VM_ZONE: ${{ vars.VM_ZONE }}
   PATH_TO_DOCKER_COMPOSE_FILE: ${{ vars.PATH_TO_DOCKER_COMPOSE_FILE }}
   VM_DATA_DISK_D_NAME: ${{ vars.VM_DATA_DISK_D_NAME }}
+  SITE_ADDRESS: ${{ vars.SITE_ADDRESS }}
 
         
 jobs:
