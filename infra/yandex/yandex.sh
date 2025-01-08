@@ -44,6 +44,7 @@ trigger_ansible_install() {
     prepare_nginx_config
 
     local address=$(get_coi_ip_address)
+    echo "server address: ${address}"
     prepare_hosts_config $address
 
     ansible-playbook -i infra/yandex/ansible infra/yandex/ansible/playbook.yml
@@ -70,6 +71,7 @@ prepare_nginx_config() {
 }
 
 prepare_hosts_config() {
+    echo "preparing host ${1}"
     sed -e "s/{{HOST_IP}}/${1}/" \
     infra/yandex/ansible/files/hosts.example > infra/yandex/ansible/inventory/hosts
 }
