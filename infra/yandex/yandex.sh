@@ -5,6 +5,7 @@ prepare_environment() {
 
     echo "$SSH_PUB_KEY" > ./key.pub
     echo "$SSH_PRIVATE_KEY" >./key.private
+    sudo chmod 600 ./key.private
 
 }
 
@@ -73,7 +74,7 @@ prepare_nginx_config() {
 prepare_hosts_config() {
     echo "preparing host ${1}"
     sed -e "s/{{HOST_IP}}/${1}/" \
-    infra/yandex/ansible/files/hosts.example > infra/yandex/ansible/inventory/hosts
+    infra/yandex/hosts.example > infra/yandex/ansible/inventory/hosts
 }
 
 main() {

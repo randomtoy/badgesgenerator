@@ -4,18 +4,23 @@
   tasks:
     - name: Create nginx directory
       ansible.builtin.file:
-        path: /home/yc-user/nginx/data
+        path: /home/yc-user/nginx/conf
         state: directory
-        mode: 0755
         force: true
+        mode: '0755'
+      become: true
+
     - name: Create certbot directory
       ansible.builtin.file:
         path: /home/yc-user/certbot/www
         state: directory
-        mode: 0775
         force: true
+        mode: '0755'
+      become: true
+
     - name: Copy nginx files
+      become: true
       ansible.builtin.copy:
         src: nginx.conf
-        dest: /home/yc-user/nginx/data/nginx.conf
-        mode: 0644
+        dest: /home/yc-user/nginx/conf/nginx.conf
+        mode: '0644'
