@@ -29,13 +29,13 @@ services:
       - 443:443
     restart: always
     volumes:
-      - ./nginx/conf:/etc/nginx/conf.d/:ro
-      - ./certbot/www:/var/www/certbot/:ro
+      - /home/yc-user/nginx/conf:/etc/nginx/conf.d/:ro
+      - /home/yc-user/certbot/www:/var/www/certbot/:ro
 
   certbot:
     image: certbot/certbot:latest
     volumes:
-      - ./certbot/www:/var/www/certbot/:rw      
+      - /home/yc-user/certbot/www:/var/www/certbot/:rw      
 
 x-yc-disks:
   - device_name: {{VM_DATA_DISK_D_NAME}}
