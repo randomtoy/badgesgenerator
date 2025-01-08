@@ -1,0 +1,16 @@
+---
+- name: Preparing LE
+  hosts: dc_hosts
+  tasks:
+    - name: create nginx directory
+      ansible.builtin.file:
+        path: /home/yc-user/nginx/data
+        state: directory
+    - name: create certbot directory
+      ansible.builtin.file:
+        path: /home/yc-user/certbot/www
+        state: directory
+    - name: copy nginx files
+      ansible.builtin.copy:
+        src: nginx.conf
+        dest: /tmp/nginx.conf
