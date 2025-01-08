@@ -6,15 +6,16 @@
       ansible.builtin.file:
         path: /home/yc-user/nginx/data
         state: directory
-        mode: 777
+        mode: 0755
         force: true
     - name: Create certbot directory
       ansible.builtin.file:
         path: /home/yc-user/certbot/www
         state: directory
-        mode: 777
+        mode: 0775
         force: true
     - name: Copy nginx files
       ansible.builtin.copy:
         src: nginx.conf
-        dest: /tmp/nginx.conf
+        dest: /home/yc-user/nginx/data/nginx.conf
+        mode: 0644

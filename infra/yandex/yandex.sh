@@ -70,8 +70,8 @@ prepare_nginx_config() {
 }
 
 prepare_hosts_config() {
-    sed -e "s/{{SITE_ADDRESS}}/${1}/" \
-    infra/yandex/ansible/inventory/hosts.example > infra/yandex/ansible/inventory/hosts
+    sed -e "s/{{HOST_IP}}/${1}/" \
+    infra/yandex/ansible/files/hosts.example > infra/yandex/ansible/inventory/hosts
 }
 
 main() {
