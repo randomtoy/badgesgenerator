@@ -20,7 +20,7 @@ install_coi_vm() {
     --network-interface subnet-id=${SUBNET_ID},nat-ip-version=ipv4 \
     --service-account-id "${SERVICE_ACCOUNT_ID}" \
     --docker-compose-file ${PATH_TO_DOCKER_COMPOSE_FILE} \
-    >/dev/null 2>&1
+   # >/dev/null 2>&1
     echo $?
 
 }
@@ -31,7 +31,7 @@ update_coi_vm() {
     yc compute instance update-container "${VM_NAME}" \
     --folder-id "${FOLDER_ID}" \
     --docker-compose-file ${PATH_TO_DOCKER_COMPOSE_FILE} \
-    >/dev/null 2>&1
+    # >/dev/null 2>&1
     echo $?
 }
 
