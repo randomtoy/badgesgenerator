@@ -36,7 +36,7 @@ update_coi_vm() {
 }
 
 prepare_ansible() {
-    apt install -y ansible jq
+    sudo apt install -y ansible jq
     echo $?
 }
 
